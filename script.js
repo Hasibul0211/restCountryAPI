@@ -3,20 +3,33 @@ document.getElementById('search-btn').addEventListener('click', function () {
     const inputField = document.getElementById('search-field');
     const inputFieldValue = inputField.value;
     inputField.value = '';
-    const url = `https://restcountries.eu/rest/v2/name/${inputFieldValue}`;
-    fetch(url)
-        .then(res => res.json())
-        .then(data => getCountry(data))
+    if (inputFieldValue == '') {
+        document.getElementById('errors').innerHTML = `<p>empty input cannot be accepted</p>`
+        console.log('empty')
+    }
+    else {
+        document.getElementById('errors').innerHTML = ''
+        const url = `https://restcountries.eu/rest/v2/name/${inputFieldValue}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => getCountry(data))
+    }
+
+
 });
 
 function getCountry(Countries) {
-    const containerDiv = document.getElementById('container-div');
-    containerDiv.textContent = '';
-    for (const country of Countries) {
-        // console.log(country.alpha3Code)
-        const div = document.createElement('div');
-        div.classList.add('col')
-        div.innerHTML = `
+    if (Countries.message === "Not Found") {
+        document.getElementById('errors').innerHTML = `<p>Data not found</p>`;
+    } else {
+        document.getElementById('errors').innerHTML = '';
+        const containerDiv = document.getElementById('container-div');
+        containerDiv.textContent = '';
+        for (const country of Countries) {
+            // console.log(country.alpha3Code)
+            const div = document.createElement('div');
+            div.classList.add('col')
+            div.innerHTML = `
             <div class="card h-100">
                 <img src="${country.flag}" class="card-img-top img-fluid" alt="country img">
                 <div class="card-body">
@@ -28,9 +41,11 @@ function getCountry(Countries) {
                 </div>
             </div>
         `;
-        containerDiv.appendChild(div)
+            containerDiv.appendChild(div)
+        }
     }
 }
+
 
 
 function countryDetail(alpha3Code) {
@@ -57,11 +72,16 @@ function finalOutput(detail) {
                 </div>
                 <div class="modal-body">
                 <div><img src="${detail.flag}" class="card-img-top" alt="country img" style="height: 200px;"></div>
+                <h5 class="text-center pt-1 text-capitalize">Capital: ${detail.capital}</h5>
+                <p class="text-center pt-1 text-capitalize">Nationality: ${detail.demonym}</p>
+                <p class="text-center pt-1 text-capitalize">Currencies: ${detail.currencies[0].name}</p>
+                <p class="text-center pt-1 text-capitalize">Population: ${detail.population}</p>
+                <p class="text-center pt-1 text-capitalize">Area: ${detail.area}</p>
+                <p class="text-center pt-1 text-capitalize">Region: ${detail.region}</p>
                 
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
 
 `;

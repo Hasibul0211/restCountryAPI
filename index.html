@@ -20,14 +20,16 @@
             <input type="text" placeholder="Search your country" id="search-field">
             <input type="button" value="search" id="search-btn">
         </div>
-        <div class="error d-none">
-            <p>empty input cannot be accepted</p>
+        <!-- error section  -->
+        <div class="error" id="errors">
+
         </div>
     </section>
     <!-- country details here  -->
     <section class="container text-center  text-capitalize">
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+            data-bs-backdrop="static" data-bs-keyboard="false">
             <div class="modal-dialog" id="single-details">
                 <div class="modal-content">
 
