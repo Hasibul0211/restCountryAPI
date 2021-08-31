@@ -1,5 +1,11 @@
-
+.colored{
+    background-color: aquamarine;
+    color: blue;
+    box-shadow: 2px 2px 40px 1px gray;
+    border-radius: 10px;
+}
 /* input section */
+
 .input-field{
     margin: 10px auto;
     display: block;
@@ -24,11 +30,14 @@ input[type=button]{
 }
 .error p{
     text-align: center;
-    color: white;
+    font-weight: bold;
+    font-size: 20px;
     text-transform: capitalize;
     width: 50%;
     margin: 5px auto;
-    padding: 5px;
+    padding: 25px;
+    border: none;
+    outline: 0;
     background-color: rgb(226, 98, 98);
 }
 
