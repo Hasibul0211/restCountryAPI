@@ -1,0 +1,51 @@
+
+/* input section */
+.input-field{
+    margin: 10px auto;
+    display: block;
+    padding-left: 25%;
+}
+input[type=text]{
+    width: 60%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid;
+    margin-right: 0;
+}
+input[type=text]:focus{
+    background-color: rgb(219, 233, 191);
+    outline: 0;
+}
+input[type=button]{
+    border: 1px solid;
+    height: 40px;
+    border-radius: 5px;
+    margin-left: 0;
+}
+.error p{
+    text-align: center;
+    color: white;
+    text-transform: capitalize;
+    width: 50%;
+    margin: 5px auto;
+    padding: 5px;
+    background-color: rgb(226, 98, 98);
+}
+
+
+
+
+@media screen and (max-width: 480px){
+    .input-field{
+        margin: 15px auto;
+        display: block;
+        padding: 5%;
+    }
+    input[type=text]{
+        width: 80%;
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid;
+        margin-right: 0;
+    }
+}

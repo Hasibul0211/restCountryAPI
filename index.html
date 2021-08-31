@@ -14,7 +14,33 @@
 </head>
 
 <body>
+    <!-- search section here -->
+    <section>
+        <div class="input-field">
+            <input type="text" placeholder="Search your country" id="search-field">
+            <input type="button" value="search" id="search-btn">
+        </div>
+        <div class="error d-none">
+            <p>empty input cannot be accepted</p>
+        </div>
+    </section>
+    <!-- country details here  -->
+    <section class="container text-center  text-capitalize">
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" id="single-details">
+                <div class="modal-content">
 
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- show country all -->
+    <section class="container">
+        <div class="row row-cols-1 row-cols-md-4 g-3" id="container-div">
+
+        </div>
+    </section>
 
 
     <script src="script.js"></script>
